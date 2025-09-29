@@ -30,8 +30,8 @@ export async function getCountryFromCoordinates(
       formattedAddress: "",
     };
   }
-  const countryComponent = result.address_components.find((component: AddressComponent) =>
-    component.types.includes("country")
+  const countryComponent = (result.address_components as AddressComponent[]).find(
+    (component) => component.types.includes("country")
   );
 
   return {
